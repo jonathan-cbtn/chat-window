@@ -11,10 +11,10 @@
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
     
-    /* Message bubble colors */
-    --message-sent-bg: #e91e63;
+    /* Message bubble colors - WCAG AA compliant */
+    --message-sent-bg: #c2185b;
     --message-sent-text: #ffffff;
-    --message-received-bg: #8d6e63;
+    --message-received-bg: #5d4037;
     --message-received-text: #ffffff;
     
     /* Spacing */
@@ -83,6 +83,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Screen reader only content */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 body {
@@ -389,12 +402,36 @@ body {
 }
 
 .message-bubble:focus,
-.message-bubble:focus-visible,
-.message-avatar:focus,
-.message-avatar:focus-visible {
+.message-bubble:focus-visible {
     outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
     z-index: var(--z-focus);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure minimum touch target size (44px) */
+.message-bubble {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve accessibility and usability */
+.message-bubble {
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease;
+}
+
+.message-bubble:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure sufficient color contrast for avatar backgrounds */
+.message-received .message-avatar {
+    background-color: #f57c00; /* Darker orange for better contrast */
+}
+
+.message-sent .message-avatar {
+    background-color: #0097a7; /* Darker cyan for better contrast */
 }
 
 /* Keyboard navigation support added via HTML tabindex attributes */
@@ -421,10 +458,31 @@ textarea:focus-visible {
         --shadow-color: rgba(255, 255, 255, 0.8);
         --message-sent-bg: #ffffff;
         --message-sent-text: #000000;
-        --message-received-bg: #ffffff;
+        --message-received-bg: #ffff00;
         --message-received-text: #000000;
-        --focus-ring-color: #ffff00;
+        --focus-ring-color: #00ffff;
         --focus-ring-width: var(--hc-outline-width);
+    }
+
+    /* Ensure strong borders in high contrast */
+    .page-title {
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: var(--spacing-sm);
+    }
+
+    /* Enhanced focus visibility */
+    .message-bubble:focus,
+    .message-bubble:focus-visible {
+        background-color: #ffff00 !important;
+        color: #000000 !important;
+        outline: 3px solid #00ffff;
+        outline-offset: 2px;
+    }
+
+    .message-bubble:focus .message-content,
+    .message-bubble:focus-visible .message-content {
+        background-color: transparent !important;
+        color: inherit !important;
     }
     
     .message-bubble {

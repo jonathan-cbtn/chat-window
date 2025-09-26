@@ -15,38 +15,38 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Header section -->
-    <header class="header">
+    <header class="header" role="banner">
         <h1 class="page-title">Chat Window</h1>
     </header>
     
     <!-- Main content area -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" role="main">
         <!-- Chat container -->
-        <div class="chat-container">
+        <section class="chat-container" role="log" aria-live="polite" aria-label="Chat conversation between Dog and Cat">
             <!-- Left bubble: Dog message -->
-            <div class="message-bubble message-received" aria-label="Dog says" tabindex="0" role="article">
-                <div class="message-avatar" tabindex="0" role="img" aria-label="Dog avatar">
+            <div class="message-bubble message-received" aria-label="Message from Dog: Yo Dawg Wassup?" tabindex="0">
+                <div class="message-avatar" role="img" aria-label="Dog avatar">
                     <!-- Emoji placeholder with hidden img tag -->
                     <span class="emoji-avatar" aria-hidden="true">🐶</span>
                     <img src="assets/dog_avatar.png" alt="Dog avatar" class="avatar-image">
                 </div>
                 <div class="message-content-wrapper">
                     <div class="message-content">
-                        <p>Yo Dawg Wassup?</p>
+                        <p><span class="visually-hidden">Dog says: </span>Yo Dawg Wassup?</p>
                     </div>
                 </div>
             </div>
             
             <!-- Right bubble: Cat message -->
-            <div class="message-bubble message-sent" aria-label="Cat says" tabindex="0" role="article">
-                <div class="message-avatar" tabindex="0" role="img" aria-label="Cat avatar">
+            <div class="message-bubble message-sent" aria-label="Message from Cat: Nothing, Wassup with Mew?" tabindex="0">
+                <div class="message-avatar" role="img" aria-label="Cat avatar">
                     <!-- Emoji placeholder with hidden img tag -->
                     <span class="emoji-avatar" aria-hidden="true">🐱</span>
                     <img src="assets/cat_avatar.png" alt="Cat avatar" class="avatar-image">
                 </div>
                 <div class="message-content-wrapper">
                     <div class="message-content">
-                        <p>Nothing, Wassup with Mew?</p>
+                        <p><span class="visually-hidden">Cat says: </span>Nothing, Wassup with Mew?</p>
                     </div>
                 </div>
             </div>
