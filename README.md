@@ -1,5 +1,7 @@
 # Chat Window - Static Single-Page Chat Component
 
+![Chat Window Screenshot](assets/chat-window-screenshot.png)
+
 A responsive, accessible single-page chat interface built with pure HTML and CSS, showcasing modern web development practices without JavaScript or build tools.
 
 ## 🎯 Project Overview
